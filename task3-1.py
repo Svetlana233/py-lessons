@@ -1,16 +1,21 @@
-def func():
+def func(x, y):
     try:
-        a = float(input("введите первое число "))
-        b = float(input("введите второе число "))
-    except ValueError:
-        return
-    try:
-        c = a / b
-        return c
+        z = x / y
+        return z
     except ZeroDivisionError:
         return
 
-result = func()
+while True:
+    try:
+        a = float(input("введите первое число "))
+        b = float(input("введите второе число "))
+        break
+    except ValueError:
+        print("вы ввели неверное значение, попробуйте еще раз")
+        continue
+
+result = func(a, b)
+
 if result != None:
     print("%.2f" % result)
 else:
