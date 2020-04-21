@@ -2,8 +2,7 @@ from random import randint
 ls = []
 i = 1
 for i in range(1, 10):
-    b = randint(0, 100)
-    ls.append(b)
+    ls.append(randint(0, 100))
     i += 1
 print(ls)
 
