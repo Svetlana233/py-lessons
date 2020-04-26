@@ -10,3 +10,5 @@ for line in my_file:
         print(ls[0])
 
 print('average salary is', summ/cnt)
+
+my_file.close()
