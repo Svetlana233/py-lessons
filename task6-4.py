@@ -22,7 +22,7 @@ class TownCar(Car):
     def show_speed_tcar(self, speed):
         self.speed = speed
         if self.speed > 60:
-            print("скорость превышена")
+            print("Скорость превышена")
 
 # class SportCar(Car):
 
@@ -30,23 +30,26 @@ class WorkCar(Car):
     def show_speed_wcar(self, speed):
         self.speed = speed
         if self.speed > 40:
-            print("скорость превышена")
+            print("Скорость превышена")
 
 class PoliceCar(Car):
     def police(self):
         if self.is_police is True:
             print("Полицейская машина")
+        else:
+            print("Не полицейская машина")
 
 
-car1 = PoliceCar(90, 'red', 'ferary', True)
-car2 = WorkCar(90, 'red', 'jipp', True)
-car3 = PoliceCar(90, 'red', 'ferary', True)
-car4 = PoliceCar(90, 'red', 'ferary', True)
-car5 = TownCar(90, 'red', 'ferary', True)
-print(car1.turn('направо'))
-print(car1.go())
-print(car1.police())
-print(car5.show_speed_tcar())
+car1 = PoliceCar(90, 'white', 'Audi', True)
+car2 = WorkCar(50, 'red', 'BMW', True)
+car3 = PoliceCar(90, 'green', 'Mini', False)
+car4 = WorkCar(30, 'black', 'Mercsedes', True)
+car5 = TownCar(90, 'grey', 'Volvo', True)
+print(car1.__init__(90, 'white', 'Audi', True), car1.police(), car1.go(), car1.turn('направо'))
+print(car2.__init__(50, 'red', 'BMW', True), car2.stop(), car2.show_speed_wcar())
+print(car3.__init__(90, 'green', 'Mini', False), car3.police())
+print(car4.__init__(30, 'black', 'Mercsedes', True), car4.show_speed_wcar())
+print(car5.__init__(90, 'grey', 'Volvo', True), car5.show_speed_tcar())
 
 # Для классов TownCar и WorkCar переопределите метод show_speed. При значении скорости
 # свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости.
