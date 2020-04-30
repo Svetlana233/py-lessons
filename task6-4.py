@@ -2,57 +2,68 @@ class Car():
     speed = 0
     color = ''
     name = ''
-    is_police = [True, False]
+    is_police = False
 
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed, color, name, is_police=False):
         self.speed = speed
         self.color = color
         self.name = name
         self.is_police = is_police
     def go(self):
-        return print("Машина поехала")
+        return "Машина поехала"
     def stop(self):
-        return print("Машина остановилась")
+        return "Машина остановилась"
     def turn(self, direction):
-        return print("Машина повернула", direction)
+        return "Машина повернула " + direction
     def show_speed(self):
-       return print(self.speed)
+        return self.speed
 
 class TownCar(Car):
-    def show_speed_tcar(self, speed):
+    def show_speed(self, speed):
         self.speed = speed
         if self.speed > 60:
-            print("Скорость превышена")
+            return "Скорость превышена"
 
-# class SportCar(Car):
+class SportCar(Car):
+    def show_speed(self, speed):
+        self.speed = speed
+        if int(self.speed) > 160:
+            return "Скорость превышена"
 
 class WorkCar(Car):
-    def show_speed_wcar(self, speed):
+    def show_speed(self, speed):
         self.speed = speed
-        if self.speed > 40:
-            print("Скорость превышена")
+        if int(self.speed) > 40:
+            return "Скорость превышена"
 
 class PoliceCar(Car):
     def police(self):
         if self.is_police is True:
-            print("Полицейская машина")
+            return "Полицейская машина"
         else:
-            print("Не полицейская машина")
+            return "Не полицейская машина"
 
 
 car1 = PoliceCar(90, 'white', 'Audi', True)
-car2 = WorkCar(50, 'red', 'BMW', True)
-car3 = PoliceCar(90, 'green', 'Mini', False)
-car4 = WorkCar(30, 'black', 'Mercsedes', True)
-car5 = TownCar(90, 'grey', 'Volvo', True)
-print(car1.__init__(90, 'white', 'Audi', True), car1.police(), car1.go(), car1.turn('направо'))
-print(car2.__init__(50, 'red', 'BMW', True), car2.stop(), car2.show_speed_wcar())
-print(car3.__init__(90, 'green', 'Mini', False), car3.police())
-print(car4.__init__(30, 'black', 'Mercsedes', True), car4.show_speed_wcar())
-print(car5.__init__(90, 'grey', 'Volvo', True), car5.show_speed_tcar())
+car2 = WorkCar(50, 'red', 'BMW')
+car3 = PoliceCar(90, 'green', 'Mini', True)
+car4 = WorkCar(30, 'black', 'Mercsedes')
+car5 = TownCar(90, 'grey', 'Volvo')
+print(car1.show_speed(), car1.police(), car1.go(), car1.turn('направо'))
+print(car2.show_speed(60), car2.stop())
+print(car3.show_speed(), car3.police())
+print(car4.show_speed(70))
+print(car5.show_speed(90))
 
-# Для классов TownCar и WorkCar переопределите метод show_speed. При значении скорости
-# свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости.
+# Реализуйте базовый класс Car. У данного класса должны быть следующие атрибуты: speed, color, name, is_police (булево)
+# .
+# А также методы: go, stop, turn(direction), которые должны сообщать, что машина поехала, остановилась, повернула (куда).
+
+# Опишите несколько дочерних классов: TownCar, SportCar, WorkCar, PoliceCar.
+# Добавьте в базовый класс метод show_speed, # который должен показывать текущую скорость автомобиля.
+#
+# Для классов TownCar и WorkCar переопределите метод show_speed.
+# При значении скорости свыше 60 (TownCar) и 40 (WorkCar) должно выводиться сообщение о превышении скорости.
 
 # Создайте экземпляры классов, передайте значения атрибутов. Выполните доступ к атрибутам, выведите результат.
 # Выполните вызов методов и также покажите результат.
